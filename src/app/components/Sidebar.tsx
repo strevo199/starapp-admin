@@ -38,21 +38,21 @@ export default function Sidebar() {
           href: `/dashboard/hymmlist/${currentAppId}`,
           icon: <OverviewIcon />,
         },
-        // {
-        //   name: 'Releases',
-        //   href: `/dashboard/hymmlist/${currentAppId}/releases`,
-        //   icon: <ReleasesIcon />,
-        // },
-        // {
-        //   name: 'Settings',
-        //   href: `/dashboard/hymmlist/${currentAppId}/settings`,
-        //   icon: <SettingsIcon />,
-        // },
-        // {
-        //   name: 'Analytics',
-        //   href: `/dashboard/hymmlist/${currentAppId}/analytics`,
-        //   icon: <AnalyticsIcon />,
-        // },
+        {
+          name: 'Releases',
+          href: `/dashboard/hymmlist/${currentAppId}/releases`,
+          icon: <ReleasesIcon />,
+        },
+        {
+          name: 'Settings',
+          href: `/dashboard/hymmlist/${currentAppId}/settings`,
+          icon: <SettingsIcon />,
+        },
+        {
+          name: 'Analytics',
+          href: `/dashboard/hymmlist/${currentAppId}/analytics`,
+          icon: <AnalyticsIcon />,
+        },
       ]
     : [];
 

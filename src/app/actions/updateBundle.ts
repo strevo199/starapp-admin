@@ -1,10 +1,10 @@
 'use server'
 
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 
 export async function updateBundleDetail(payload:any) {
-    const cookieStore = await cookies(); // ✅ Await it!
-    const token = cookieStore.get("authToken");
+    // const cookieStore = await cookies(); // ✅ Await it!
+    // const token = cookieStore.get("authToken");
 
   // if (!token) {
   //   throw new Error("No auth token found");
