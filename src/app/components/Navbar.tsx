@@ -50,7 +50,7 @@ const Navbar = ({isauth}:{isauth:boolean}) => {
           // onClick={handleLogin}
           className="bg-blue-600 text-white px-4 py-2 rounded"
         >
-          Login with GitHub
+          Login 
         </button>
       )}
     </nav>
