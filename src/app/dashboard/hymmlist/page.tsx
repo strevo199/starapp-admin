@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { HymmListype } from "@/store.tsx/slices/appSlice";
 import HymmListClient from "@/app/components/HymmListClient";
 
-export async function gethymmlist(): Promise<HymmListype> {
+ async function gethymmlist(): Promise<HymmListype> {
   // const cookieStore = await cookies();
   // const token = cookieStore.get("authToken");
 
