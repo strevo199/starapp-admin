@@ -61,7 +61,7 @@ export default function HymmListClient({ hymmlist }: Props) {
             {selected?.chorus && (
               <div className="flex gap-x-3 m">
                 <div className=" text-center text-gray-600">Chorus:</div>
-                <pre>{selected?.chorus}</pre>
+                <pre className="text-gray-600">{selected?.chorus}</pre>
               </div>
             )}
             <div className="font-bold my-2.5 text-gray-800"> Verses</div>
