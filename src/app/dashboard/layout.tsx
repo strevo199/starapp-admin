@@ -1,16 +1,13 @@
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+// import { cookies } from 'next/headers';
+// import { redirect } from 'next/navigation';
 import Sidebar from '../components/Sidebar';
 
 export default async function DashboardLayout({children}:{
   children: React.ReactNode;
 }) {
-    const cookieStore = await cookies(); // ✅ Await it!
-    const token = cookieStore.get('authToken');    
+    // const cookieStore = await cookies(); // ✅ Await it!
+    // const token = cookieStore.get('authToken');    
 
-  if (!token) {
-    redirect('/'); // not logged in
-  }
   
 
   return (
