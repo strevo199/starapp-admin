@@ -17,7 +17,7 @@ export default function HymmListClient({ hymmlist }: Props) {
   };
   return (
     <div className="p-2">
-      <h1 className="text-2xl font-bold mb-4">Hymm List</h1>
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">Hymm List</h1>
       <div className="flex lg:flex-row flex-col gap-3 flex-1">
         <div className="flex-1 sm:max-h-[20vh] lg:max-h-lvh overflow-y-auto">
           {hymmlist.length > 0 ? (
@@ -32,7 +32,7 @@ export default function HymmListClient({ hymmlist }: Props) {
                   } border-1 bg-white h-10 w-10 sm:h-15 sm:w-15 rounded-xl shadow-lg justify-center items-center flex cursor-pointer`}
                   onClick={() => handleShowPreview(item)}
                 >
-                  <div className="font-bold text-lg sm:text-xl">{item.hymm_number}</div>
+                  <div className="font-bold text-lg sm:text-xl text-gray-600">{item.hymm_number}</div>
                 </div>
               ))}
             </div>
@@ -45,26 +45,26 @@ export default function HymmListClient({ hymmlist }: Props) {
             {/* You could render the preview here */}
             <div className="flex justify-between">
               <div className="text-sm"></div>
-              <div className=" font-bold text-lg sm:text-xl text-center">
+              <div className=" font-bold text-lg sm:text-xl text-center text-gray-800">
                 {selected?.content}
               </div>
               <div
                 className={`border-1 bg-white h-6 w-10 rounded-xl shadow-lg justify-center items-center flex cursor-pointer`}
                 onClick={() => setIsModalOpen(true)}
               >
-                <div className="text-sm">Edit</div>
+                <div className="text-sm text-gray-800">Edit</div>
               </div>
             </div>
             <div className="flex justify-around my-3">
-              <div className=" text-center">{selected?.title}</div>
+              <div className=" text-center text-gray-600">{selected?.title}</div>
             </div>
             {selected?.chorus && (
               <div className="flex gap-x-3 m">
-                <div className=" text-center">Chorus:</div>
+                <div className=" text-center text-gray-600">Chorus:</div>
                 <pre>{selected?.chorus}</pre>
               </div>
             )}
-            <div className="font-bold my-2.5"> Verses</div>
+            <div className="font-bold my-2.5 text-gray-800"> Verses</div>
 
             {selected?.verses.map((item, index) => (
               <div
@@ -73,8 +73,8 @@ export default function HymmListClient({ hymmlist }: Props) {
                 } flex gap-x-3`}
                 key={index.toString()}
               >
-                <div>{item.label}</div>
-                <pre className="text-sm sm:text-lg lg:text-xl">{item.value}</pre>
+                <div className="text-gray-800">{item.label}</div>
+                <pre className="text-sm sm:text-lg lg:text-xl text-gray-800">{item.value}</pre>
               </div>
             ))}
           </div>

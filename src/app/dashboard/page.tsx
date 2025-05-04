@@ -13,8 +13,8 @@ export default async function Page() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-      <p>Welcome! You are authenticated.</p>
+      <h1 className="text-2xl text-gray-800 font-bold">Dashboard</h1>
+      <p className=" text-gray-600">Welcome! You are authenticated.</p>
       <div className="gap-5 mt-10 flex-wrap flex flex-1 ">
         {featureList.map((item) => (
           <Card key={item.title} item={item} />

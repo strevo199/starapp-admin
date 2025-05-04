@@ -84,7 +84,7 @@ export default function Page() {
 
   return (
     <div className="max-w-xl mx-auto   p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6">Add Hymm</h1>
+      <h1 className="text-2xl text-gray-800 font-bold mb-6">Add Hymm</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4 ">
         {/* hymm_number */}
@@ -160,7 +160,7 @@ export default function Page() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500"
               />
-              <span className="ml-2">English</span>
+              <span className="ml-2 text-gray-800">English</span>
             </label>
             <label className="inline-flex items-center">
               <input
@@ -171,7 +171,7 @@ export default function Page() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500"
               />
-              <span className="ml-2">Yoruba</span>
+              <span className="ml-2 text-gray-800">Yoruba</span>
             </label>
             <label className="inline-flex items-center">
               <input
@@ -182,7 +182,7 @@ export default function Page() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500"
               />
-              <span className="ml-2">Igbo</span>
+              <span className="ml-2 text-gray-800">Igbo</span>
             </label>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function Page() {
           />
         </div>
         <div>
-          <div className="font-bold my-2.5"> Verses</div>
+          <div className="font-bold my-2.5 text-gray-800"> Verses</div>
 
           {formData.verses.map((item, index) => (
             <div
@@ -221,7 +221,7 @@ export default function Page() {
         </div>
         {/* Verses */}
         <div className="bg-gray-100 p-4 rounded-xl">
-          <div className="font-bold my-2.5">Create Verses</div>
+          <div className="font-bold text-gray-600 my-2.5">Create Verses</div>
           <div>
             <label
               htmlFor="label"
