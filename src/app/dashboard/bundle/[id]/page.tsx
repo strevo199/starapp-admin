@@ -1,5 +1,4 @@
 import BundleStatusToggle from "@/app/components/BundleStatusToggle";
-import UsersTable from "@/app/components/UsersTable";
 import { cookies } from "next/headers";
 
 /* eslint-disable @next/next/no-img-element */
@@ -274,8 +273,8 @@ export default async function BundleDetailPage({
       </div>
       <div className=" flex-1/6 mt-6 bg-white">
         {/* Bubdle Property */}
-        <UsersTable bundle={bundle} />
       </div>
     </div>
   );
 }
+ 
