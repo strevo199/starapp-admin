@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import { HymmListype } from "@/store.tsx/slices/appSlice";
 import HymmListClient from "@/app/components/HymmListClient";
 
 export async function gethymmlist(): Promise<HymmListype> {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("authToken");
+  // const cookieStore = await cookies();
+  // const token = cookieStore.get("authToken");
 
   const response = await fetch(
     "https://startapp-be.onrender.com/hymms/get_hymms",

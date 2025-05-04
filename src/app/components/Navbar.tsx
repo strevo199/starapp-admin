@@ -1,33 +1,33 @@
 'use client';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const Navbar = ({isauth}:{isauth:boolean}) => {
 
   
 
-    const router = useRouter();
-  const handleLogin = async () => {
-    try {
-      const res = await fetch('/api/proxy-login');
-      const {data} = await res.json();
-console.log('data',data);
+    // const router = useRouter();
+//   const handleLogin = async () => {
+//     try {
+//       const res = await fetch('/api/proxy-login');
+//       const {data} = await res.json();
+// console.log('data',data);
 
-      if (data) {
-        const authWindow = window.open(
-            data,
-            "_blank",
-            "width=500,height=600"
-          );
-          window.location.href = '/auth/token';
+//       if (data) {
+//         const authWindow = window.open(
+//             data,
+//             "_blank",
+//             "width=500,height=600"
+//           );
+//           window.location.href = '/auth/token';
           
-      } else {
-        console.error('OAuth URL not found');
-      }
-    } catch (err) {
-      console.error('Login error:', err);
-    }
-  };
+//       } else {
+//         console.error('OAuth URL not found');
+//       }
+//     } catch (err) {
+//       console.error('Login error:', err);
+//     }
+//   };
 
   const handleLogout = async () => {
     await fetch('/api/logout');
@@ -47,7 +47,7 @@ console.log('data',data);
         </button>
       ) : (
         <button
-          onClick={handleLogin}
+          // onClick={handleLogin}
           className="bg-blue-600 text-white px-4 py-2 rounded"
         >
           Login with GitHub
