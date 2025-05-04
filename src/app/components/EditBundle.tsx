@@ -94,13 +94,13 @@ const EditBundle = ({
     <Modal isOpen={isModalOpen} onClose={closeModalAction}>
       <div className="gap-y-3 max-h-[80vh] overflow-y-auto flex flex-col p-4">
         <div className="flex flex-col items-center mb-4 justify-center">
-          <h2 className="text-lg font-bold">Update Hymm {hymm?.hymm_number}</h2>
+          <h2 className="text-lg text-gray-800 font-bold">Update Hymm {hymm?.hymm_number}</h2>
         </div>
 
         <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-gray-700"
+            className="block  text-sm font-medium text-gray-700"
           >
             Hymm Title *
           </label>
@@ -111,7 +111,7 @@ const EditBundle = ({
             value={formData.title}
             onChange={handleInputChange}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 text-gray-700 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
@@ -129,7 +129,7 @@ const EditBundle = ({
             value={formData.content}
             onChange={handleInputChange}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block text-gray-700 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
@@ -146,7 +146,7 @@ const EditBundle = ({
             rows={4}
             value={formData.chorus}
             onChange={handleInputChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 text-gray-700 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
@@ -171,7 +171,7 @@ const EditBundle = ({
                   onChange={(e) =>
                     handleVerseChange(index, "label", e.target.value)
                   }
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 text-gray-700 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div className="mt-2">
@@ -188,7 +188,7 @@ const EditBundle = ({
                   onChange={(e) =>
                     handleVerseChange(index, "value", e.target.value)
                   }
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="mt-1 text-gray-700 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             </div>
