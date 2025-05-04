@@ -25,11 +25,11 @@ export default function Page() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: string; value: string; }; }) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  const handleVerseInputChange = (e) => {
+  const handleVerseInputChange = (e: { target: { name: string; value: string; }; }) => {
     const { name, value } = e.target;
     setVerse((prev) => ({ ...prev, [name]: value }));
   };
@@ -42,7 +42,7 @@ export default function Page() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setIsSubmitting(true);
     console.log("formData", formData);

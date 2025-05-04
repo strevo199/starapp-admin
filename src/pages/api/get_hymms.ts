@@ -1,5 +1,7 @@
 // pages/api/proxy.js
-export default async function handler(req, res) {
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const response = await fetch('https://startapp-be.onrender.com/hymms/get_hymms', {
       method: 'POST',
       headers: {

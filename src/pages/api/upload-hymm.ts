@@ -24,9 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(200).json(result);
   } catch (error) {
     console.error('Upload error:', error);
-    return res.status(500).json({ 
-      error: error.responseMessage || 'Internal server error',
-      ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
-    });
+    // return res.status(500).json({ 
+    //   error: 'Internal server error',
+    //   ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
+    // });
   }
 }

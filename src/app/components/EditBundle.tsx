@@ -22,7 +22,7 @@ const EditBundle = ({
   isModalOpen,
   closeModalAction,
 }: {
-  hymm: HymmListype[0];
+  hymm: HymmListype[0] | undefined;
   closeModalAction: () => void;
   isModalOpen: boolean;
 }) => {
@@ -76,7 +76,7 @@ const EditBundle = ({
       setIsLoading(true);
       const result = await updateBundleDetail({
         ...formData,
-        _id: hymm._id, // Include hymm number in the update
+        _id: hymm?._id ||"",
       });
 
       alert(result.responseMessage || "Hymm updated successfully");
@@ -84,7 +84,7 @@ const EditBundle = ({
       closeModalAction();
     } catch (error) {
       console.error("Failed to update:", error);
-      alert(error.responseMessage || "Failed to update hymm");
+      alert( "Failed to update hymm");
     } finally {
       setIsLoading(false);
     }

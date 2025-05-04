@@ -1,10 +1,17 @@
 'use server'
-
-import { HymmListype } from "@/store.tsx/slices/appSlice";
-
 // import { cookies } from "next/headers";
 
-export async function updateBundleDetail(payload:HymmListype[0]) {
+export async function updateBundleDetail(payload:{
+  title: string;
+  _id: string;
+  hymm_number?: string;
+  content: string;
+  chorus: string;
+  verses: {
+      label: string;
+      value: string;
+  }[];}
+) {
     // const cookieStore = await cookies(); // ✅ Await it!
     // const token = cookieStore.get("authToken");
 

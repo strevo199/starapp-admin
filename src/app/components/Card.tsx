@@ -3,7 +3,15 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Card = ({ item }) => {
+const Card = ({ item }: {item:{
+  id: number;
+  title: string;
+  icon?: string;
+  value: string;
+  color?: string;
+  description: string;
+  route: string;
+}}) => {
   return (
     <Link 
       href={item.route} 
