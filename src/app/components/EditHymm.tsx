@@ -17,7 +17,7 @@ interface FormData {
   verses: Verse[];
 }
 
-const EditBundle = ({
+const EditHymm = ({
   hymm,
   isModalOpen,
   closeModalAction,
@@ -28,6 +28,10 @@ const EditBundle = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const [verse, setVerse] = useState<{ label: string; value: string }>({
+    label: "",
+    value: "",
+  });
   const [formData, setFormData] = useState<FormData>({
     title: "",
     content: "",
@@ -46,7 +50,10 @@ const EditBundle = ({
       });
     }
   }, [hymm]);
-
+  const handleVerseInputChange = (e: { target: { name: string; value: string; }; }) => {
+    const { name, value } = e.target;
+    setVerse((prev) => ({ ...prev, [name]: value }));
+  };
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -66,6 +73,19 @@ const EditBundle = ({
     });
   };
 
+    const appVerse = () => {
+    setFormData((pre) => ({ ...pre, verses: [...formData.verses, verse] }));
+    setVerse({
+      label: "",
+      value: "",
+    });
+  };
+  const removeVerse = (verse: Verse) => {    
+    setFormData((pre) => ({ ...pre, verses: formData.verses.filter(item => item.label !== verse.label)}));
+  }
+
+
+
   const handleUpdateBundle = async () => {
     if (!formData.title || !formData.content) {
       alert("Title and content are required");
@@ -76,7 +96,7 @@ const EditBundle = ({
       setIsLoading(true);
       const result = await updateBundleDetail({
         ...formData,
-        _id: hymm?._id ||"",
+        _id: hymm?._id || "",
       });
 
       alert(result.responseMessage || "Hymm updated successfully");
@@ -84,7 +104,7 @@ const EditBundle = ({
       closeModalAction();
     } catch (error) {
       console.error("Failed to update:", error);
-      alert( "Failed to update hymm");
+      alert("Failed to update hymm");
     } finally {
       setIsLoading(false);
     }
@@ -94,7 +114,9 @@ const EditBundle = ({
     <Modal isOpen={isModalOpen} onClose={closeModalAction}>
       <div className="gap-y-3 max-h-[80vh] overflow-y-auto flex flex-col p-4">
         <div className="flex flex-col items-center mb-4 justify-center">
-          <h2 className="text-lg text-gray-800 font-bold">Update Hymm {hymm?.hymm_number}</h2>
+          <h2 className="text-lg text-gray-800 font-bold">
+            Update Hymm {hymm?.hymm_number}
+          </h2>
         </div>
 
         <div>
@@ -155,8 +177,9 @@ const EditBundle = ({
           {formData.verses.map((verse, index) => (
             <div
               key={index}
-              className="bg-gray-50 p-4 rounded-lg border border-gray-200"
+              className="bg-gray-50 p-4 rounded-lg border border-gray-200 relative"
             >
+              <button onClick={() =>removeVerse(verse)} className=" bg-red-400 text-sm  h-6 w-6 absolute right-2 top-1 shadow-2xl rounded-3xl" >x</button>
               <div>
                 <label
                   htmlFor={`verse-label-${index}`}
@@ -193,6 +216,53 @@ const EditBundle = ({
               </div>
             </div>
           ))}
+          <div className="bg-gray-100 p-4 rounded-xl">
+            <div className="font-bold text-gray-600 my-2.5">Create More Verses</div>
+            <div>
+              <label
+                htmlFor="label"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Label
+              </label>
+              <input
+                type="text"
+                placeholder="enter label here"
+                id="label"
+                name="label"
+                value={verse.label}
+                onChange={handleVerseInputChange}
+                className="mt-1 block w-full text-gray-700 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            <div className="mt-2">
+              <label
+                htmlFor="value"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Value
+              </label>
+              <textarea
+                id="value"
+                name="value"
+                rows={4}
+                value={verse.value}
+                onChange={handleVerseInputChange}
+                className="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter value here..."
+              />
+            </div>
+            <div className="mt-4">
+              <button
+                type="button"
+                className={`w-30 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 
+              `}
+                onClick={appVerse}
+              >
+                Add verse
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="mt-4">
@@ -211,4 +281,4 @@ const EditBundle = ({
   );
 };
 
-export default EditBundle;
+export default EditHymm;

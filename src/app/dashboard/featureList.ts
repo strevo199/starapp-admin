@@ -16,14 +16,7 @@ const featureList = [
        route:'dashboard/hymmlist',
        value:'',
 
-    },
-    // {
-    //   id: 1,
-    //   icon:'/plus.png',
-    //   title: "Create Batch",
-    //   description:"click to register a batch for trageted bundle release",
-    //    route:'dashboard/createbatch'
-    // },
+    }
   ];
 
   export default featureList

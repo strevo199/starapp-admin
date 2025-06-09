@@ -24,7 +24,9 @@ export default function Page() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const removeVerse = (verse: Verse) => {    
+    setFormData((pre) => ({ ...pre, verses: formData.verses.filter(item => item.label !== verse.label)}));
+  }
   const handleInputChange = (e: { target: { name: string; value: string; }; }) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -211,9 +213,11 @@ export default function Page() {
             <div
               className={`p-2  ${
                 index % 2 ? "bg-gray-100" : " bg-transparent"
-              } flex gap-x-3`}
+              } flex gap-x-3 relative`}
               key={index.toString()}
             >
+                            <button onClick={() =>removeVerse(verse)} className=" bg-red-400 text-sm  h-6 w-6 absolute right-2 top-1 shadow-2xl rounded-3xl" >x</button>
+
               <div>{item.label}</div>
               <pre>{item.value}</pre>
             </div>

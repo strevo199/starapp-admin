@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { HymmListype } from "@/store.tsx/slices/appSlice";
-import EditBundle from "./EditBundle";
+import EditHymm from "./EditHymm";
 
 type Props = {
   hymmlist: HymmListype;
@@ -80,7 +80,7 @@ export default function HymmListClient({ hymmlist }: Props) {
           </div>
         )}
       </div>
-      <EditBundle
+      <EditHymm
         hymm={selected}
         isModalOpen={isModalOpen}
         closeModalAction={closeModalAction}
