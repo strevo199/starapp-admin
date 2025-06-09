@@ -24,7 +24,7 @@ export default function Page() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const removeVerse = (verse: Verse) => {    
+  const removeVerse = (verse: { label: string; value?: string; }) => {    
     setFormData((pre) => ({ ...pre, verses: formData.verses.filter(item => item.label !== verse.label)}));
   }
   const handleInputChange = (e: { target: { name: string; value: string; }; }) => {
